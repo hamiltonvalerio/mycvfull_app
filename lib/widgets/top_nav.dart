@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:mycvfull_app/constants/style.dart';
 import 'package:mycvfull_app/helpers/responsiveness.dart';
@@ -28,41 +30,29 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
         children: [
           Visibility(
               child: CustomText(
-            text: "Dash",
+            text: "valerio.eti.br",
             color: lightGrey,
             size: 20,
             weight: FontWeight.normal,
           )),
           Expanded(child: Container()),
+          !ResponsiveWidget.isSmallScreen(context)
+              ? Row(
+                  children: [
+                    TextButton(
+                        child: Text('Sobre'),
+                        onPressed: () {
+                          print('Pressed');
+                        }),
+                  ],
+                )
+              : Row(),
           IconButton(
             icon: Icon(
               Icons.settings,
               color: dark.withOpacity(.7),
             ),
             onPressed: () {},
-          ),
-          Stack(
-            children: [
-              IconButton(
-                  icon: Icon(
-                    Icons.notifications,
-                    color: dark.withOpacity(.7),
-                  ),
-                  onPressed: () {}),
-              Positioned(
-                top: 7,
-                right: 7,
-                child: Container(
-                  width: 12,
-                  height: 12,
-                  padding: EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                      color: active,
-                      borderRadius: BorderRadius.circular(30),
-                      border: Border.all(color: light, width: 2)),
-                ),
-              )
-            ],
           ),
           Container(
             width: 1,
