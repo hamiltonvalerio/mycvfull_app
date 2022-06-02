@@ -5,3 +5,5 @@ const CurriculoPageRoute = "Cúrriculo";
 const ContatoPageRoute = "Contato";
 const SobrePageRoute = "Sobre";
 const AuthenticationPageRoute = "Authentication";
+
+List sideMenuItems = [SobrePageRoute, AuthenticationPageRoute];
