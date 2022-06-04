@@ -4,6 +4,14 @@ const ExperienciaPageRoute = "Experiência";
 const CurriculoPageRoute = "Cúrriculo";
 const ContatoPageRoute = "Contato";
 const SobrePageRoute = "Sobre";
-const AuthenticationPageRoute = "Authentication";
+const LoginPageRoute = "Login";
 
-List sideMenuItemRoutes = [SobrePageRoute, AuthenticationPageRoute];
+List sideMenuItemRoutes = [
+  HomePageRoute,
+  FormacaoPageRoute,
+  ExperienciaPageRoute,
+  CurriculoPageRoute,
+  ContatoPageRoute,
+  SobrePageRoute,
+  LoginPageRoute
+];

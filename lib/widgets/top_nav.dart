@@ -1,8 +1,15 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:mycvfull_app/constants/controllers.dart';
 import 'package:mycvfull_app/constants/style.dart';
 import 'package:mycvfull_app/helpers/responsiveness.dart';
+import 'package:mycvfull_app/pages/contato/contato.dart';
+import 'package:mycvfull_app/pages/curriculo/curriculo.dart';
+import 'package:mycvfull_app/pages/experiencia/experiencia.dart';
+import 'package:mycvfull_app/pages/formacao/formacao.dart';
+import 'package:mycvfull_app/pages/home/home.dart';
+import 'package:mycvfull_app/pages/sobre/sobre.dart';
 
 import 'custom_text.dart';
 
@@ -42,32 +49,38 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                       TextButton(
                           child: Text('Home'),
                           onPressed: () {
-                            print('Pressed');
+                            navigationController
+                                .navigateTo(HomePage().getNameRoute());
                           }),
                       TextButton(
                           child: Text('Formação'),
                           onPressed: () {
-                            print('Pressed');
+                            navigationController
+                                .navigateTo(FormacaoPage().getNameRoute());
                           }),
                       TextButton(
                           child: Text('Experiência'),
                           onPressed: () {
-                            print('Pressed');
+                            navigationController
+                                .navigateTo(ExperienciaPage().getNameRoute());
                           }),
                       TextButton(
                           child: Text('Cúrriculo'),
                           onPressed: () {
-                            print('Pressed');
+                            navigationController
+                                .navigateTo(CurriculoPage().getNameRoute());
                           }),
                       TextButton(
                           child: Text('Contatos'),
                           onPressed: () {
-                            print('Pressed');
+                            navigationController
+                                .navigateTo(ContatoPage().getNameRoute());
                           }),
                       TextButton(
                           child: Text('Sobre'),
                           onPressed: () {
-                            print('Pressed');
+                            navigationController
+                                .navigateTo(SobrePage().getNameRoute());
                           }),
                     ],
                   )

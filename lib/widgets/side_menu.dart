@@ -31,16 +31,14 @@ class SideMenu extends StatelessWidget {
                       width: _width / 48,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 12),
-                      child: Image.asset("assets/icons/logo.png"),
+                      padding: const EdgeInsets.only(right: 16),
+                      child: CustomText(
+                        text: "valerio.eti.br",
+                        size: 20,
+                        weight: FontWeight.normal,
+                        color: lightGrey,
+                      ),
                     ),
-                    Flexible(
-                        child: CustomText(
-                      text: "valerio.eti.br",
-                      size: 14,
-                      weight: FontWeight.bold,
-                      color: active,
-                    )),
                     SizedBox(
                       width: _width / 48,
                     )
@@ -58,17 +56,15 @@ class SideMenu extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: sideMenuItemRoutes
                 .map((itemName) => SideMenuItem(
-                    itemName: itemName == AuthenticationPageRoute
-                        ? "Log Out"
-                        : itemName,
+                    itemName: itemName == LoginPageRoute ? "Log Out" : itemName,
                     onTap: () {
-                      if (itemName == AuthenticationPageRoute) {
+                      if (itemName == LoginPageRoute) {
                         //TODO:: GO TO AUTHENTICATION PAGE
                       }
                       if (!menuController.isActive(itemName)) {
                         menuController.changeActiveitemTo(itemName);
                         if (ResponsiveWidget.isSmallScreen(context)) Get.back();
-                        //TODO:: GO TO ITEN NAME ROUTE
+                        navigationController.navigateTo(itemName);
                       }
                     }))
                 .toList(),

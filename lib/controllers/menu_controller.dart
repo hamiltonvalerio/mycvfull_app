@@ -23,9 +23,19 @@ class MenuController extends GetxController {
 
   Widget returnIconFor(String itemName) {
     switch (itemName) {
+      case HomePageRoute:
+        return _customIcon(Icons.home, itemName);
+      case FormacaoPageRoute:
+        return _customIcon(Icons.auto_stories, itemName);
+      case ExperienciaPageRoute:
+        return _customIcon(Icons.business_center, itemName);
+      case CurriculoPageRoute:
+        return _customIcon(Icons.border_color, itemName);
+      case ContatoPageRoute:
+        return _customIcon(Icons.phone, itemName);
       case SobrePageRoute:
-        return _customIcon(Icons.trending_up, itemName);
-      case AuthenticationPageRoute:
+        return _customIcon(Icons.badge, itemName);
+      case LoginPageRoute:
         return _customIcon(Icons.login, itemName);
       default:
         return _customIcon(Icons.exit_to_app, itemName);
