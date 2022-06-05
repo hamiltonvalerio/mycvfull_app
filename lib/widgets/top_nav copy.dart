@@ -10,34 +10,38 @@ import 'package:mycvfull_app/pages/experiencia/experiencia.dart';
 import 'package:mycvfull_app/pages/formacao/formacao.dart';
 import 'package:mycvfull_app/pages/home/home.dart';
 import 'package:mycvfull_app/pages/sobre/sobre.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'custom_text.dart';
 
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
     AppBar(
-      leading: Row(
-        children: [
-          !ResponsiveWidget.isSmallScreen(context)
-              ? Visibility(
-                  child: CustomText(
-                  text: "  valerio.eti.br",
-                  color: lightGrey,
-                  size: 20,
-                  weight: FontWeight.normal,
-                ))
-              : IconButton(
-                  icon: Icon(Icons.menu),
-                  onPressed: () {
-                    key.currentState?.openDrawer();
-                  },
-                ),
-        ],
-      ),
-      leadingWidth: 130,
+      leading: !ResponsiveWidget.isSmallScreen(context)
+          ? Row(
+              children: [
+                Container(
+                    padding: EdgeInsets.only(left: 14),
+                    child: Image.asset(
+                      "assets/icons/logo.png",
+                      width: 32,
+                    ))
+              ],
+            )
+          : IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                key.currentState?.openDrawer();
+              },
+            ),
       title: Container(
         child: Row(
           children: [
+            Visibility(
+                child: CustomText(
+              text: "valerio.eti.br",
+              color: lightGrey,
+              size: 20,
+              weight: FontWeight.normal,
+            )),
             Expanded(child: Container()),
             !ResponsiveWidget.isSmallScreen(context)
                 ? Row(
@@ -85,26 +89,18 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
               icon: Image.asset(
                   "assets/icons/linkedin/icons8-linkedin-circled-32.png"),
               iconSize: 32,
-              onPressed: () {
-                _launch(
-                    Uri.parse("https://www.linkedin.com/in/hamiltonvalerio"));
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Image.asset("assets/icons/github/icons8-github-32.png"),
               iconSize: 32,
-              onPressed: () {
-                _launch(Uri.parse("https://github.com/hamiltonvalerio"));
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon:
                   Image.asset("assets/icons/instagram/icons8-instagram-32.png"),
               iconSize: 32,
-              onPressed: () {
-                _launch(Uri.parse(
-                    "https://www.instagram.com/hamiltonvaleriofilho/"));
-              },
+              onPressed: () {},
             ),
             IconButton(
               icon: Icon(
@@ -120,9 +116,3 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
       elevation: 0,
       backgroundColor: Colors.transparent,
     );
-
-Future<void> _launch(Uri url) async {
-  await canLaunchUrl(url)
-      ? await launchUrl(url)
-      : throw 'Could not launch $url';
-}
