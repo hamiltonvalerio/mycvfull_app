@@ -1,3 +1,4 @@
+const rootRoute = "/";
 const HomePageRoute = "Home";
 const FormacaoPageRoute = "Formação";
 const ExperienciaPageRoute = "Experiência";
