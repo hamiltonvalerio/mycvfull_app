@@ -9,6 +9,7 @@ import 'package:mycvfull_app/pages/curriculo/curriculo.dart';
 import 'package:mycvfull_app/pages/experiencia/experiencia.dart';
 import 'package:mycvfull_app/pages/formacao/formacao.dart';
 import 'package:mycvfull_app/pages/home/home.dart';
+import 'package:mycvfull_app/pages/login/login.dart';
 import 'package:mycvfull_app/pages/sobre/sobre.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -111,7 +112,9 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                 Icons.settings,
                 color: dark.withOpacity(.7),
               ),
-              onPressed: () {},
+              onPressed: () {
+                navigationController.navigateTo(LoginPage().getNameRoute());
+              },
             )
           ],
         ),
