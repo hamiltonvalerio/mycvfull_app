@@ -1,5 +1,5 @@
 class Environment {
-  static final String CLIENT_ID = "backend-service";
+  static final String CLIENT_ID = "frontend-service";
   static final String SSO_URL = "http://localhost:8888/auth/realms/mycvfullapp";
   static final Map<String, String> HEADER = {
     "content-type": "application/x-www-form-urlencoded",
