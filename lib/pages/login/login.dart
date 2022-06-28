@@ -21,6 +21,13 @@ class LoginPage extends StatelessWidget {
     return authService!.authenticateUser(username, password);
   }
 
+  _acessarAdminPage(BuildContext context, String username) async {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => AdminHomePage(username: username)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,14 +106,10 @@ class LoginPage extends StatelessWidget {
                   var statusCode =
                       await attemptLogIn(username, _passwordController.text);
                   if (statusCode == 200) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                AdminHomePage(username: username)));
+                    _acessarAdminPage(context, username);
                   } else {
-                    displayDialog(context, "Something went wrong",
-                        "No account was found matching that username and password");
+                    displayDialog(
+                        context, "Erro:", "Login ou senha não conferem.");
                   }
                 },
                 child: Container(

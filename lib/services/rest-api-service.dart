@@ -17,12 +17,27 @@ class RestApiService {
 
   Future<ApiResponse<T>> apiGetSecured<T>(
       Uri uri, T Function(Map<String, dynamic>) fromJson) async {
+    print("aqui");
     final headers = await createAuthHeader();
     if (headers == null) {
       return ApiResponse<T>(body: null, code: 401);
     }
+    print(headers);
     final response = await http.get(uri, headers: headers);
+    print("RESPONSE");
+    print(response.body);
     return parseResponse(response, fromJson);
+  }
+
+  Future<Object> apiGetSecuredString<T>(
+      Uri uri, T Function(Map<String, dynamic>) fromJson) async {
+    final headers = await createAuthHeader();
+    if (headers == null) {
+      return ApiResponse<T>(body: null, code: 401);
+    }
+    print(headers);
+    final response = await http.get(uri, headers: headers);
+    return response.body;
   }
 
   Future<ApiResponse<T>> apiGetNotSecured<T>(
